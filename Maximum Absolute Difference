@@ -1,0 +1,44 @@
+public class Solution {
+    public int maxArr(int[] A) {
+
+        //solving for i<j
+        int N = A.length;
+        int[] X = new int[N];
+        int[] Y = new int[N];
+
+        int max=Integer.MIN_VALUE;
+        int min=Integer.MAX_VALUE;
+        for(int i=0;i<N;i++){
+            X[i] = A[i]+i;
+
+            if(X[i]<min){
+                min=X[i];
+            }
+
+            if(X[i]>max){
+                max=X[i];
+            }
+        }
+
+        int x = max-min;
+        max=Integer.MIN_VALUE;
+        min=Integer.MAX_VALUE;
+        for(int i=0;i<N;i++){
+            Y[i] = A[i]-i;
+
+            if(Y[i]<min){
+                min=Y[i];
+            }
+
+            if(Y[i]>max){
+                max=Y[i];
+            }
+        }
+
+        int y = max-min;
+
+        return Math.max(x,y);
+
+
+    }
+}
